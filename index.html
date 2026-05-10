@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forte API · Reference</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OpenAPI / Swagger reference for the Forte platform. Browse every seeker, recruiter, and auth endpoint with example payloads.">
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui.css">
+  <style>
+    body { margin: 0; background: #fafafa; }
+    .topbar { display: none; }
+    .forte-banner {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 24px;
+      background: #1a1f2e; color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+    }
+    .forte-banner a { color: #4a90e2; text-decoration: none; }
+    .forte-banner a:hover { text-decoration: underline; }
+    .forte-banner strong { font-size: 16px; }
+    .forte-banner .spacer { flex: 1; }
+  </style>
+</head>
+<body>
+  <div class="forte-banner">
+    <strong>Forte API</strong>
+    <span class="spacer"></span>
+    <a href="https://forte.help">forte.help</a>
+    <a href="https://github.com/mmdmirh/forte">GitHub</a>
+    <a href="https://api.forte.help/docs">Live /docs</a>
+  </div>
+  <div id="swagger-ui"></div>
+  <script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-bundle.js"></script>
+  <script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-standalone-preset.js"></script>
+  <script>
+    // Boot Swagger UI against the spec snapshot committed in this repo.
+    // We use the local copy (rather than fetching api.forte.help/openapi.json
+    // each load) so the docs page works even if the backend is briefly
+    // unavailable, and so each commit pins a reviewable spec version.
+    window.ui = SwaggerUIBundle({
+      url: "openapi.json",
+      dom_id: "#swagger-ui",
+      deepLinking: true,
+      presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIStandalonePreset
+      ],
+      layout: "StandaloneLayout",
+      docExpansion: "list",
+      tagsSorter: "alpha",
+      operationsSorter: "alpha"
+    });
+  </script>
+</body>
+</html>
